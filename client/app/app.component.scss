@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:700');
+@import '../styles/bulma.scss';
+
+
+html > body {
+  margin: 0;
+  padding: 0;
+  .navbar {
+    background: #311B50 url("../img/affectv-logo.png") no-repeat fixed top !important;
+    height: 60px;
+  }
+  .box {
+    overflow:scroll !important;
+    .carousel {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+}

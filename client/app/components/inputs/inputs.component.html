@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="columns is-multiline">
+        <form class="column is-6" novalidate>
+            <h1 class="title">Product info box</h1>
+                <label>Background colour:</label> <input type="text" name="productBackground" ng-model="product.backgroundColour"><br/>
+                <label>Text colour:</label> <input type="text" name="productText" ng-model="product.textColour"><br/>
+            <h1 class="title">Link button</h1>
+            <label>Background colour:</label> <input type="text" name="linkBackground" ng-model="link.backgroundColour"><br/>
+            <label>Text colour:</label> <input type="text" name="linkText" ng-model="link.textColour"><br/>
+            <button class="button is-primary" ng-click="inputsController.generateAd()">Get product feed and generate ad</button>
+        </form>
+
+
+        <div class="column is-6" id="product-ad">
+            <div class="box"
+                 style="background: {{product.backgroundColour}};
+                    height:300px;
+                    width:250px;">
+                <div style="height: 100%">
+                    <div uib-carousel style="height:100%;" active="active" interval="myInterval" no-wrap="noWrapSlides">
+                        <div uib-slide ng-repeat="prod in inputsController.products track by prod.id" index="$index">
+                            <img ng-src=".{{prod.img}}" style="margin:auto;">
+                            <div style="top:200px;" >
+                                <h4 style="color:{{product.textColour}};">{{prod.name}}</h4>
+                                <a style="background: {{link.backgroundColour}};color:{{link.textColour}}"
+                                href="{{prod.link}}">Buy now!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column is-6 is-offset-6">
+            <h2 class="subtitle">HTML preview</h2>
+            <iframe class="box" src="{{inputsController.htmlTemplate}}">
+            </iframe>
+        </div>
+    </div>
+</div>
